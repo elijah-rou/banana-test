@@ -2,9 +2,11 @@
 # Run it with `python3 test.py``
 
 import requests
+import json
 
-model_inputs = {'prompt': 'Hello I am a [MASK] model.'}
+with open("images.json", "r") as f:
+    model_inputs = json.load(f)
 
-res = requests.post('http://localhost:8000/', json = model_inputs)
+    res = requests.post('http://localhost:8000/', json = model_inputs)
 
-print(res.json())
+    print(res.json())
